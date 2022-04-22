@@ -1,6 +1,14 @@
 <template>
-    Hello world
+    Hello world {{name}} sdfsf
+    <li v-for="framework in frameworks" > test {{framework}} ssss</li>
+    <p>ss</p>
 </template>
 <script>
-export default {}
+//props must be declared before use
+export default {
+    props: {
+        name: String,
+        frameworks: Array
+    }
+}
 </script>

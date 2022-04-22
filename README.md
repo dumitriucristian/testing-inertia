@@ -5,6 +5,18 @@ curl -s https://laravel.build/example-app | bash
 cd example-app
  ./vendor/bin/sail up
 ```
+
+##Create Sail  alias
+Go into WSL in the project folder and run 
+```
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+```
+##Start Sail
+```angular2html
+sail up -d
+```
+
+
 ##Step two - install inertia
 Go to [inertia website] https://inertiajs.com/ and install server side adapter
 ```composer require inertiajs/inertia-laravel```      
@@ -47,3 +59,29 @@ npm install
 ```
 use twice npx mix to compile code
 ```npx mix```
+
+
+##Configure Sail hot reload with browser sink
+[Sail hot reload]  https://blog.devgenius.io/quick-tip-laravel-mix-hot-reloading-in-sail-with-browsersync-555b6c97bca3
+start sail
+```angular2html
+sail up -d
+```
+
+Publish sail
+```
+sail artisan sail:publish
+```
+modify webpack
+```angular2html
+mix.browserSync({
+    proxy: 'localhost',
+    open: false,
+});
+
+```
+
+run
+```
+sail npm run watch-poll
+```

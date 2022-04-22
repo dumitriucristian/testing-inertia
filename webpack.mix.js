@@ -16,4 +16,16 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ])
-    .version();
+    .version()
+    .browserSync({
+        proxy: 'localhost',
+        open: false,
+        files: [
+            'public/**/*.css',
+            'resources/**/*',
+            'routes/**/*',
+            'app/**/*',
+
+        ]
+    }
+);
